@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: test07-deployment
+    labels:
+      app: test07
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: test07
+  template:
+    metadata:
+      labels:
+        app: test07
+    spec:
+      containers:
+      - image: igorgorokhov/test07:v1
+        name: test07
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
